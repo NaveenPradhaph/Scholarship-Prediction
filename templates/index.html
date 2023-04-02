@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type = "text/css"href="{{url_for('static',filename="styles/s_style.css")}}">
+    <script src="jquery-3.1.1.min.js" type='text/javascript'></script>
+    <link href='bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css' rel='stylesheet' type='text/css'>
+    <script src='bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js' type='text/javascript'></script>
+</head>
+<body>
+
+
+    <h1>Scholar<span color="blue">Today</span></h1>
+    <form action="{{ url_for('predict')}}" method="POST">
+    <div class="container">
+    <div class="row">
+
+    <p class="sub-head">Gender</p>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="gender" id="gender-male" value='1'>
+        <label class="form-check-label" for="gender-male" >
+            Male
+          </label>
+      </div>
+  <div class="form-check">
+      <input class="form-check-input" type="radio" name="gender" id="gender-female" value='0'>
+      <label class="form-check-label2" for="gender-female" >
+        Female
+      </label>
+  </div>
+
+  <p class="sub-head">Education Qualification</p>
+  <select class="form-select" aria-label=".form-select-sm example" style="width: 100vh;" name="Education" id='Education'>
+      <option selected>Select</option>
+      <option value="0">Undergraduate</option>
+      <option value="1">Postgraduate</option>
+      <option value="2">Doctrate</option>
+    </select>
+
+    <p class="sub-head">Religion</p>
+    <select class="form-select" aria-label=".form-select-sm example" style="width: 100vh;" name='Religion' id='Religion'>
+        <option selected>Select</option>
+        <option value="0">Hindu</option>
+        <option value="1">Muslim</option>
+        <option value="2">Christian</option>
+        <option value="3">Others</option>
+    </select>
+
+    <p class="sub-head">Community</p>
+    <select class="form-select" aria-label=".form-select-sm example" style="width: 100vh;" name='Community' id='Community'>
+        <option selected>Select</option>
+        <option value="0">General</option>
+        <option value="1">OBC</option>
+        <option value="2">SC/ST</option>
+        <option value="3">Minorities</option>
+    </select>
+
+    <p class="sub-head">Percentage</p>
+    <select class="form-select" aria-label=".form-select-sm example" style="width: 100vh;" name='Percentage' id='Percentage'>
+        <option selected>Select</option>
+        <option value="0">90-100</option>
+        <option value="1">80-90</option>
+        <option value="2">70-80</option>
+        <option value="3">Below 70</option>
+    </select>
+
+    <p class="sub-head">Annual Income</p>
+    <select class="form-select" aria-label=".form-select-sm example" style="width: 100vh;" name='Income' id='Income'>
+        <option selected>Select</option>
+        <option value="0">Upto 1.5L</option>
+        <option value="1">1.5L to 3L</option>
+        <option value="2">3L to 6L</option>
+        <option value="3">Above 6L</option>
+    </select>
+
+    <p class="sub-head">Ex-Service Men</p>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="Exservice" id="Exservice-yes" value='1'>
+        <label class="form-check-label" for="Exservice-yes">
+            Yes
+          </label>
+      </div>
+  <div class="form-check">
+      <input class="form-check-input" type="radio" name="Exservice" id="Exservice-no" value='0'>
+      <label class="form-check-label2" for="Exservice-no" >
+        No
+      </label>
+  </div>
+
+    <p class="sub-head">Disability</p>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="Disability" id="Disability-yes" value='1'>
+      <label class="form-check-label" for="Disability-yes" >
+          Yes
+        </label>
+    </div>
+    <div class="form-check">
+    <input class="form-check-input" type="radio" name="Disability" id="Disability-no" value='0'>
+    <label class="form-check-label2" for="Disability-no" >
+      No
+    </label>
+    </div>
+
+    <p class="sub-head">Sports</p>
+    <div class="form-check">
+    <input class="form-check-input" type="radio" name="Sports" id="Sports-yes" value='1'>
+    <label class="form-check-label" for="Sports-yes" >
+        Yes
+      </label>
+    </div>
+    <div class="form-check">
+    <input class="form-check-input" type="radio" name="Sports" id="Sports-no" value='0'>
+    <label class="form-check-label2" for="Sports-no" >
+    No
+    </label>
+    </div>
+
+
+    <p class="sub-head">India/Abroad</p>
+    <div class="form-check">
+    <input class="form-check-input" type="radio" name="India" id="India-in" value='0'>
+    <label class="form-check-label" for="India-in" >
+        In
+      </label>
+    </div>
+    <div class="form-check">
+    <input class="form-check-input" type="radio" name="India" id="India-out" value='1'> 
+    <label class="form-check-label2" for="India-out" >
+    Out
+    </label>
+    </div>
+    <button class="btn btn-primary" type="submit" style="width: 100vh" id="submit">Submit</button>
+</div>
+</div>
+</section>
+
+</form>
+</body>
+</html>
