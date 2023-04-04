@@ -15,7 +15,7 @@ df=pd.read_csv("scholar_data.csv")
 app = Flask(__name__)
 model = pickle.load(open('scholar.pkl','rb'))
 
-@app.route("/",methods=['GET'])
+@app.route("/")
 def home():
     return render_template("index.html")
 
@@ -56,7 +56,7 @@ y = df2[df2.columns[-1]].values
 sc=StandardScaler()
 X=sc.fit_transform(X)
 
-@app.route("/predict", methods=['POST'])
+@app.route("/", methods=['POST'])
 def predict():
     if request.method == 'POST':
         Education = int(request.form['Education'])
@@ -71,7 +71,9 @@ def predict():
         India = int(request.form['India'])
         
         values=[Education, Gender, Community, Religion, Exservice, Disability,Sports, Percentage, Income,India]
-                
+        
+        print(values)
+        
         arr=[]
         for i in range(len(scholarship)):
             col = []
@@ -87,8 +89,12 @@ def predict():
             output = model.predict(val).item()
             if(output>0):
                 eligible_scholarship.append(scholarship[i])
+            print(output)
         
+        print(arr)
+        # return render_template("predict.html",prediction_text="The scholar prediction is {}".format(eligible_scholarship))
         return render_template("predict.html",eligible_scholarship=eligible_scholarship,length=len(eligible_scholarship))
+        # return render_template("predict.html")    
     else:
         return render_template('index.html')
 
