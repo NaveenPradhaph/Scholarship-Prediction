@@ -2,7 +2,8 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Glassmorphism Login Form</title>
+	<title>ScholarToday</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
 	<link rel="stylesheet" type = "text/css"href="{{url_for('static',filename="styles/style.css")}}">
 </head>
 <body>
@@ -24,7 +25,8 @@
       <option value="2">Doctrate</option>
     </select>
             </div>
-            <div class="sidespace2">
+    <div class="sidespace2">
+      <div class="nav">
     <p class="sub-head">Percentage</p>
     <select class="form-select" aria-label=".form-select-sm example" style="width: 50vh;height:3.2vh;" name='Percentage' id='Percentage'>
         <option selected>Select</option>
@@ -32,7 +34,7 @@
         <option value="1">80-90</option>
         <option value="2">70-80</option>
         <option value="3">Below 70</option>
-    </select>
+    </select></div>
     </div>
           </div>
 
@@ -48,6 +50,7 @@
     </select>
   </div>
 <div class="sidespace2">
+  <div class="nav">
     <p class="sub-head">Community</p>
     <select class="form-select" aria-label=".form-select-sm example" style="width: 50vh;height:3.2vh;" name='Community' id='Community'>
         <option selected>Select</option>
@@ -55,7 +58,7 @@
         <option value="1">OBC</option>
         <option value="2">SC/ST</option>
         <option value="3">Minorities</option>
-    </select>
+    </select></div>
   </div>
 </div>
 
@@ -72,26 +75,27 @@
   </div>
   <div class="sidespace2">
     <div class="move1">
+      <div class="nav1">
     <p class="sub-head ">Gender</p>
     <div class="sidespace">
     <div class="sidespace1">
         <input class="form-check-input" type="radio" name="gender" id="gender-male" value='1'>
-        <label class="form-check-label" for="gender-male" >Male
+        <label class="form-check-label" for="gender-male" >Male &nbsp;
           </label>
       </div>
   <div class="sidespace2">
       <input class="form-check-input" type="radio" name="gender" id="gender-female" value='0'>
       <label class="form-check-label2" for="gender-female" >
-        Female
+           Female
       </label>
     </div>
-  </div>
+  </div></div>
 </div>
 </div>
 </div>
 <div class="move">
 
-    <p class="sub-hea">Ex-Service Men</p>
+    <p class="sub-hea">Is the parent of the applicant an ex-service man?</p>
     <div class="sidespace">
         <input class="form-check-input" type="radio" name="Exservice" id="Exservice-yes" value='1'>
         <label class="form-check-label" for="Exservice-yes">
@@ -104,7 +108,7 @@
   </div>
 
 
-    <p class="sub-hea">Disability</p>
+    <p class="sub-hea">Does the applicant have any disabilities?</p>
     <div class="sidespace">
       <input class="form-check-input" type="radio" name="Disability" id="Disability-yes" value='1'>
       <label class="form-check-label" for="Disability-yes" >
@@ -116,7 +120,7 @@
     </label>
     </div>
 
-    <p class="sub-hea">Sports</p>
+    <p class="sub-hea">Is the applicant applying through the sports quota?</p>
     <div class="sidespace">
     <input class="form-check-input" type="radio" name="Sports" id="Sports-yes" value='1'>
     <label class="form-check-label" for="Sports-yes" >
@@ -127,15 +131,15 @@
     No
     </label>
     </div>
-    <p class="sub-hea">India/Abroad</p>
+    <p class="sub-hea">Is the applicant looking for scholarships in India or abroad countries?</p>
     <div class="sidespace">
     <input class="form-check-input" type="radio" name="India" id="India-in" value='0'>
     <label class="form-check-label" for="India-in" >
-        In
+        India
       </label>
     <input class="form-check-input" type="radio" name="India" id="India-out" value='1'> 
     <label class="form-check-label2" for="India-out" >
-    Out
+    Abroad
     </label>
     </div>
   </div>

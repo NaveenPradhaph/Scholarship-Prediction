@@ -1,5 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ScholarToday</title>
+    <link rel="stylesheet" type = "text/css"href="{{url_for('static',filename="styles/layout.css")}}">    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+<style>
+    .container{
+        margin: 47px;
+    }
+    .container h1{
+        font-family: 'Space Grotesk', sans-serif;
+        text-align: center;
+    }
+    .sch{
+        margin-top: 10px;
+        padding: 10px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+    /* .box{
+      padding: 10px;
+    } */
+    .sch .award{
+        width:135vh;
+      }
 
-{% for scholarship in eligible_scholarship %}
-    {{ scholarship }}
-    <br>
-{% endfor %}
+    .sch h1 {
+        text-align: left;
+        font-family:SpaceGrotesk-Light;
+        color:#000000;
+        line-height: 1.2;
+        font-weight: 75;
+        font-size: 23px;
+        margin-bottom: 20px;
+    }
+    
+    .sch .detail{
+        color: #333;
+        font-size: 14px;
+    }
+    
+    .sch p span{
+        color:rgb(98, 35, 114);
+    }
+      .wrapper{
+        transform: translate(0%, -50%);
+      }
+      
+      .link_wrapper{
+        position:relative;
+        left: 75%;
+      }
+      
+      a{
+        display: block;
+        width: 250px;
+        height: 50px;
+        line-height: 50px;
+        font-weight: bold;
+        text-decoration: none;
+        background: #333;
+        text-align: center;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: 3px solid #333;
+        transition: all .35s;
+      }
+      
+      .icon{
+        width: 50px;
+        height: 50px;
+        border: 3px solid transparent;
+        position: absolute;
+        transform: rotate(45deg);
+        right: 79.5%;
+        top: 0;
+        z-index: -1;
+        transition: all .35s;
+      }
+      
+      .icon svg{
+        width: 30px;
+        position: absolute;
+        top: calc(50% - 15px);
+        left: calc(50% - 15px);
+        transform: rotate(-45deg);
+        fill: #2ecc71;
+        transition: all .35s;
+      }
+      
+      a:hover{
+        width: 200px;
+        border: 3px solid #2ecc71;
+        background: transparent;
+        color: #2ecc71;
+      }
+      
+      a:hover + .icon{
+        border: 3px solid #2ecc71;
+      }    
+</style>
+  </head>
+  <body>
+    <div class="container">
+        <h1>Eligibile Scholarships</h1>
+        <div class="box">
+        {% for scholarship in data %}
+        <div class="sch">
+            <h1>{{ scholarship[0] }}</h1>
+            <p class = "detail"> &emsp;&emsp; {{ scholarship[1] }}</p>
+            <p><span> DeadLine :</span> {{ scholarship[2] }}</p>
+            <p class="award"><span> Award : </span>{{ scholarship[3] }}</p>
+            <div class="wrapper">
+                <div class="link_wrapper">
+                  <a href="{{ scholarship[4] }}">Apply Now</a>
+                  <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 268.832 268.832">
+                      <path d="M265.17 125.577l-80-80c-4.88-4.88-12.796-4.88-17.677 0-4.882 4.882-4.882 12.796 0 17.678l58.66 58.66H12.5c-6.903 0-12.5 5.598-12.5 12.5 0 6.903 5.597 12.5 12.5 12.5h213.654l-58.66 58.662c-4.88 4.882-4.88 12.796 0 17.678 2.44 2.44 5.64 3.66 8.84 3.66s6.398-1.22 8.84-3.66l79.997-80c4.883-4.882 4.883-12.796 0-17.678z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+        </div>
+        {% endfor %} 
+    </div></div>
+  </body>
+</html>
